@@ -6,10 +6,12 @@
 #define GIT_VERSION_PATCH "@GIT_VERSION_PATCH@"
 #define GIT_COMMIT_DATE "@GIT_COMMIT_DATE@"
 #define GIT_COMMIT_SUBJECT "@GIT_COMMIT_SUBJECT@"
-
-extern const std::string Version;
-extern const std::string VersionMajor;
-extern const std::string VersionMinor;
-extern const std::string VersionPatch;
-extern const std::string CommitDate;
-extern const std::string CommitSubject;
+namespace Network 
+{
+    extern const std::string Version;
+    extern const std::string VersionMajor;
+    extern const std::string VersionMinor;
+    extern const std::string VersionPatch;
+    extern const std::string CommitDate;
+    extern const std::string CommitSubject;
+}
