@@ -1,0 +1,15 @@
+#pragma once
+#include <string>
+#define GIT_VERSION "@GIT_VERSION@"
+#define GIT_VERSION_MAJOR "@GIT_VERSION_MAJOR@"
+#define GIT_VERSION_MINOR "@GIT_VERSION_MINOR@"
+#define GIT_VERSION_PATCH "@GIT_VERSION_PATCH@"
+#define GIT_COMMIT_DATE "@GIT_COMMIT_DATE@"
+#define GIT_COMMIT_SUBJECT "@GIT_COMMIT_SUBJECT@"
+
+extern const std::string Version;
+extern const std::string VersionMajor;
+extern const std::string VersionMinor;
+extern const std::string VersionPatch;
+extern const std::string CommitDate;
+extern const std::string CommitSubject;

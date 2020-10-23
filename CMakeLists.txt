@@ -78,6 +78,5 @@ if (MSVC)
 endif()
 
 FILE(GLOB_RECURSE Headers  ${CMAKE_CURRENT_SOURCE_DIR}/include/*.h)
-add_library(${PROJECT_NAME} INTERFACE Headers)
+add_library(${PROJECT_NAME} INTERFACE)
 target_include_directories(${PROJECT_NAME} INTERFACE include)
-
