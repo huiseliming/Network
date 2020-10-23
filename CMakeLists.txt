@@ -77,6 +77,12 @@ if (MSVC)
     set(CMAKE_WINDOWS_EXPORT_ALL_SYMBOLS ON)
 endif()
 
-FILE(GLOB_RECURSE Headers  ${CMAKE_CURRENT_SOURCE_DIR}/include/*.h)
+FILE(GLOB_RECURSE Headers  include/*.h)
 add_library(${PROJECT_NAME} INTERFACE)
 target_include_directories(${PROJECT_NAME} INTERFACE include)
+#配置asio
+FILE(GLOB_RECURSE ASIOHeaders external/asio/include/*.h)
+add_library(asio INTERFACE)
+target_include_directories(${PROJECT_NAME} INTERFACE external/asio/asio/include)
+target_link_libraries(${PROJECT_NAME} INTERFACE asio)
+
