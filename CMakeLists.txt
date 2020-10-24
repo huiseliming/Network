@@ -44,7 +44,7 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 #set(CMAKE_VERBOSE_MAKEFILE ON)
 #set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 #查找依赖包
-find_package(glfw3 REQUIRED)
+#find_package(glfw3 REQUIRED)
 
 if (MSVC)
     # MSVC链接静态库(/MT),替换/MD为/MT来进行链接静态库,使用RUNTIME_STATIC_LINK控制链接静态库还是动态库
