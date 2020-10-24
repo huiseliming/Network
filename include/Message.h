@@ -73,7 +73,7 @@ public:
         data.resize(stringLen);
         dataOffset = size - sizeof(uint32_t) - stringLen;
         std::memcpy(data.data(), msg.body.data() + dataOffset, stringLen);
-        msg.body.resize(msg.body.size() - sizeof(uint32_t) + stringLen);
+        msg.body.resize(msg.body.size() - sizeof(uint32_t) - stringLen);
         msg.header.size = static_cast<uint32_t>(msg.body.size());
         return msg;
     }
