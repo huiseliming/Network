@@ -59,7 +59,7 @@ public:
         uint32_t stringLen = static_cast<uint32_t>(data.size());
         msg.body.resize(msg.body.size() + sizeof(uint32_t) + data.size());
         std::memcpy(msg.body.data() + i, data.data(), data.size());
-        std::memcpy(msg.body.data() + i + data.size(), stringLen, sizeof(uint32_t));
+        std::memcpy(msg.body.data() + i + data.size(), &stringLen, sizeof(uint32_t));
         msg.header.size = static_cast<uint32_t>(msg.body.size());
         return msg;
     }
