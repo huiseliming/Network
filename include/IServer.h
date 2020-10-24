@@ -1,6 +1,7 @@
 #pragma once
 #include "Common.h"
-
+#include "Connection.h"
+#include "Message.h"
 
 
 template<typename T>
