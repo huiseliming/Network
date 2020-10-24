@@ -53,7 +53,30 @@ public:
         return msg;
     }
 
+    friend Message<T>& operator<<(Message<T>& msg,const std::string& data)
+    {
+        size_t i = msg.body.size();
+        uint32_t stringLen = static_cast<uint32_t>(data.size());
+        msg.body.resize(msg.body.size() + sizeof(uint32_t) + data.size());
+        std::memcpy(msg.body.data() + i, data.data(), data.size());
+        std::memcpy(msg.body.data() + i + data.size(), stringLen, sizeof(uint32_t));
+        msg.header.size = static_cast<uint32_t>(msg.body.size());
+        return msg;
+    }
 
+    friend Message<T>& operator>>(Message<T>& msg, std::string& data)
+    {
+        size_t size = msg.body.size();
+        size_t dataOffset = size - sizeof(uint32_t);
+        size_t stringLen = 0;
+        std::memcpy(&stringLen, msg.body.data() + dataOffset, sizeof(uint32_t));
+        data.resize(stringLen);
+        dataOffset = size - sizeof(uint32_t) - stringLen;
+        std::memcpy(data.data(), msg.body.data() + dataOffset, stringLen);
+        msg.body.resize(msg.body.size() - sizeof(uint32_t) + stringLen);
+        msg.header.size = static_cast<uint32_t>(msg.body.size());
+        return msg;
+    }
 };
 
 template<typename T>
